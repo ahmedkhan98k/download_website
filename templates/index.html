@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تحميل من مواقع التواصل - Social Downloader</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- العلامة المائية -->
+    <div class="developer-watermark">
+        <i class="fas fa-code"></i> أحمد خان @_98sf
+    </div>
+
+    <!-- شريط المطور الجانبي -->
+    <div class="developer-badge">
+        <a href="https://t.me/AHMED_KHANA" target="_blank">
+            <i class="fab fa-telegram"></i> @AHMED_KHANA
+        </a>
+    </div>
+
+    <!-- شريط المطور العلوي -->
+    <div class="bg-dark text-white py-2">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <i class="fas fa-code me-2 text-primary"></i>
+                    <span>تم التطوير بواسطة <strong class="developer-name">أحمد خان</strong></span>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="https://instagram.com/_98sf" target="_blank" class="text-white me-3">
+                        <i class="fab fa-instagram"></i> @_98sf
+                    </a>
+                    <a href="https://t.me/AHMED_KHANA" target="_blank" class="text-white">
+                        <i class="fab fa-telegram"></i> @AHMED_KHANA
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- شريط التنقل -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-download me-2"></i>
+                Social Downloader
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/">الرئيسية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">
+                            <i class="fas fa-user-cog me-1"></i> عن المطور
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- المحتوى الرئيسي -->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <div class="card shadow-lg border-0">
+                    <div class="card-body p-5">
+                        <h1 class="text-center mb-4">
+                            <i class="fas fa-cloud-download-alt text-primary me-2"></i>
+                            تحميل من جميع مواقع التواصل
+                        </h1>
+                        <p class="text-center text-muted mb-4">
+                            حمّل الفيديوهات والصور بدون علامة مائية وبأعلى جودة
+                        </p>
+                        
+                        <!-- أيقونات المنصات -->
+                        <div class="platform-icons text-center mb-4">
+                            <span class="badge bg-primary m-1 p-3">
+                                <i class="fab fa-tiktok fa-2x"></i>
+                            </span>
+                            <span class="badge bg-primary m-1 p-3">
+                                <i class="fab fa-facebook fa-2x"></i>
+                            </span>
+                            <span class="badge bg-primary m-1 p-3">
+                                <i class="fab fa-instagram fa-2x"></i>
+                            </span>
+                            <span class="badge bg-primary m-1 p-3">
+                                <i class="fab fa-youtube fa-2x"></i>
+                            </span>
+                            <span class="badge bg-primary m-1 p-3">
+                                <i class="fab fa-pinterest fa-2x"></i>
+                            </span>
+                            <span class="badge bg-primary m-1 p-3">
+                                <i class="fab fa-snapchat fa-2x"></i>
+                            </span>
+                        </div>
+                        
+                        <!-- نموذج الإدخال -->
+                        <div class="input-group mb-3">
+                            <input type="url" 
+                                   class="form-control form-control-lg" 
+                                   id="urlInput" 
+                                   placeholder="الصق الرابط هنا..."
+                                   dir="ltr">
+                            <button class="btn btn-primary btn-lg" type="button" id="downloadBtn">
+                                <i class="fas fa-download me-2"></i>
+                                تحميل
+                            </button>
+                        </div>
+                        
+                        <!-- رسالة الخطأ -->
+                        <div id="errorMessage" class="alert alert-danger d-none"></div>
+                        
+                        <!-- مؤشر التحميل -->
+                        <div id="loadingIndicator" class="text-center d-none">
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="visually-hidden">جاري التحميل...</span>
+                            </div>
+                            <p class="mt-2">جاري معالجة الرابط...</p>
+                        </div>
+                        
+                        <!-- النتيجة -->
+                        <div id="resultContainer" class="mt-4 d-none">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-4" id="thumbnailContainer">
+                                            <!-- الصورة المصغرة ستظهر هنا -->
+                                        </div>
+                                        <div class="col-md-8">
+                                            <h5 id="videoTitle"></h5>
+                                            <p class="text-muted" id="videoInfo"></p>
+                                            <div class="d-grid gap-2">
+                                                <button class="btn btn-success btn-lg" id="downloadFileBtn">
+                                                    <i class="fas fa-save me-2"></i>
+                                                    تحميل الملف
+                                                </button>
+                                                <button class="btn btn-outline-primary" id="newDownloadBtn">
+                                                    <i class="fas fa-redo me-2"></i>
+                                                    تحميل رابط آخر
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- التعليمات -->
+                        <div class="instructions mt-4 p-4 bg-light rounded">
+                            <h5><i class="fas fa-info-circle text-primary me-2"></i>كيفية الاستخدام:</h5>
+                            <ol class="mb-0">
+                                <li>انسخ رابط الفيديو أو الصورة من أي موقع تواصل</li>
+                                <li>الصق الرابط في الحقل أعلاه</li>
+                                <li>اضغط على زر "تحميل"</li>
+                                <li>انتظر قليلاً ثم حمّل الملف بجودة عالية</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- بطاقة المطور -->
+        <div class="row mt-4">
+            <div class="col-md-8 mx-auto">
+                <div class="card shadow-lg border-0 bg-gradient text-white" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                    <div class="card-body text-center p-4">
+                        <div class="d-flex align-items-center justify-content-center mb-3">
+                            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" 
+                                 alt="Developer" 
+                                 style="width: 60px; height: 60px; border-radius: 50%; border: 3px solid white; margin-left: 15px;">
+                            <div class="text-start">
+                                <h4 class="mb-1">المطور: أحمد خان</h4>
+                                <p class="mb-0">
+                                    <i class="fab fa-instagram me-1"></i> Insta: @_98sf |
+                                    <i class="fab fa-telegram me-1"></i> Telegram: @AHMED_KHANA
+                                </p>
+                            </div>
+                        </div>
+                        <div class="developer-badges mt-3">
+                            <span class="badge bg-light text-dark p-2 mx-1">
+                                <i class="fas fa-code me-1"></i> مطور بايثون
+                            </span>
+                            <span class="badge bg-light text-dark p-2 mx-1">
+                                <i class="fas fa-robot me-1"></i> بوتات تيلجرام
+                            </span>
+                            <span class="badge bg-light text-dark p-2 mx-1">
+                                <i class="fas fa-globe me-1"></i> مواقع ويب
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- تذييل الصفحة -->
+    <footer class="footer mt-5 py-4 bg-dark text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 text-center text-md-start">
+                    <h5><i class="fas fa-download me-2"></i>Social Downloader</h5>
+                    <p>موقع تحميل من مواقع التواصل الاجتماعي بدون علامة مائية وبأعلى جودة</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <h5>المنصات المدعومة</h5>
+                    <div class="d-flex justify-content-center flex-wrap">
+                        <span class="badge bg-primary m-1"><i class="fab fa-tiktok"></i> تيك توك</span>
+                        <span class="badge bg-primary m-1"><i class="fab fa-facebook"></i> فيسبوك</span>
+                        <span class="badge bg-primary m-1"><i class="fab fa-instagram"></i> انستجرام</span>
+                        <span class="badge bg-primary m-1"><i class="fab fa-youtube"></i> يوتيوب</span>
+                        <span class="badge bg-primary m-1"><i class="fab fa-pinterest"></i> بنترست</span>
+                        <span class="badge bg-primary m-1"><i class="fab fa-snapchat"></i> سناب شات</span>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center text-md-end">
+                    <h5>المطور</h5>
+                    <div class="mb-2">
+                        <a href="https://instagram.com/_98sf" target="_blank" class="text-white me-3">
+                            <i class="fab fa-instagram fa-2x"></i>
+                        </a>
+                        <a href="https://t.me/AHMED_KHANA" target="_blank" class="text-white">
+                            <i class="fab fa-telegram fa-2x"></i>
+                        </a>
+                    </div>
+                    <p class="mb-1"><strong>أحمد خان</strong></p>
+                    <p class="mb-0 small">
+                        <i class="fab fa-instagram me-1"></i> @_98sf<br>
+                        <i class="fab fa-telegram me-1"></i> @AHMED_KHANA
+                    </p>
+                </div>
+            </div>
+            <hr class="bg-light mt-4">
+            <div class="text-center">
+                <p class="mb-0">تم التطوير بواسطة <strong class="developer-name">أحمد خان</strong> - جميع الحقوق محفوظة &copy; 2024</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
