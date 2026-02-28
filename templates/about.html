@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عن المطور - Social Downloader</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- العلامة المائية -->
+    <div class="developer-watermark">
+        <i class="fas fa-code"></i> أحمد خان @_98sf
+    </div>
+
+    <!-- شريط المطور الجانبي -->
+    <div class="developer-badge">
+        <a href="https://t.me/AHMED_KHANA" target="_blank">
+            <i class="fab fa-telegram"></i> @AHMED_KHANA
+        </a>
+    </div>
+
+    <!-- شريط المطور العلوي -->
+    <div class="bg-dark text-white py-2">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <i class="fas fa-code me-2 text-primary"></i>
+                    <span>تم التطوير بواسطة <strong class="developer-name">أحمد خان</strong></span>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="https://instagram.com/_98sf" target="_blank" class="text-white me-3">
+                        <i class="fab fa-instagram"></i> @_98sf
+                    </a>
+                    <a href="https://t.me/AHMED_KHANA" target="_blank" class="text-white">
+                        <i class="fab fa-telegram"></i> @AHMED_KHANA
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-download me-2"></i>
+                Social Downloader
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">الرئيسية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/about">
+                            <i class="fas fa-user-cog me-1"></i> عن المطور
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <!-- قسم المطور -->
+        <div class="developer-card mb-5">
+            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="أحمد خان" class="developer-avatar">
+            <h1 class="display-4 mb-3">أحمد خان</h1>
+            <p class="lead mb-4">مطور برمجيات وبوتات تيلجرام ومواقع ويب</p>
+            
+            <div class="social-links mb-4">
+                <a href="https://instagram.com/_98sf" target="_blank" class="social-link">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://t.me/AHMED_KHANA" target="_blank" class="social-link">
+                    <i class="fab fa-telegram"></i>
+                </a>
+                <a href="#" target="_blank" class="social-link">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="#" target="_blank" class="social-link">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="d-flex justify-content-center flex-wrap">
+                        <span class="tech-badge"><i class="fas fa-code me-1"></i> Python</span>
+                        <span class="tech-badge"><i class="fab fa-js me-1"></i> JavaScript</span>
+                        <span class="tech-badge"><i class="fas fa-database me-1"></i> SQL</span>
+                        <span class="tech-badge"><i class="fab fa-flask me-1"></i> Flask</span>
+                        <span class="tech-badge"><i class="fab fa-telegram me-1"></i> Telegram Bots</span>
+                        <span class="tech-badge"><i class="fas fa-robot me-1"></i> Discord Bots</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- معلومات التواصل -->
+        <div class="row mb-5">
+            <div class="col-md-6">
+                <div class="project-card text-center">
+                    <i class="fab fa-instagram fa-3x text-primary mb-3"></i>
+                    <h3>انستجرام</h3>
+                    <p class="text-muted">تابعني على انستجرام</p>
+                    <a href="https://instagram.com/_98sf" target="_blank" class="btn btn-outline-primary">
+                        <i class="fab fa-instagram me-2"></i> @_98sf
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="project-card text-center">
+                    <i class="fab fa-telegram fa-3x text-primary mb-3"></i>
+                    <h3>تيلجرام</h3>
+                    <p class="text-muted">تواصل معي على تيلجرام</p>
+                    <a href="https://t.me/AHMED_KHANA" target="_blank" class="btn btn-outline-primary">
+                        <i class="fab fa-telegram me-2"></i> @AHMED_KHANA
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- مشاريع سابقة -->
+        <h2 class="text-center mb-4">مشاريع سابقة</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="project-card">
+                    <i class="fas fa-download fa-2x text-primary mb-3"></i>
+                    <h4>Social Downloader</h4>
+                    <p>موقع تحميل من مواقع التواصل الاجتماعي بدون علامة مائية</p>
+                    <span class="badge bg-primary">موقع ويب</span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="project-card">
+                    <i class="fas fa-robot fa-2x text-primary mb-3"></i>
+                    <h4>Downloader Bot</h4>
+                    <p>بوت تيلجرام لتحميل من جميع المنصات</p>
+                    <span class="badge bg-primary">بوت تيلجرام</span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="project-card">
+                    <i class="fas fa-chart-line fa-2x text-primary mb-3"></i>
+                    <h4>Admin Panel</h4>
+                    <p>لوحة تحكم متكاملة لإدارة المجموعات</p>
+                    <span class="badge bg-primary">بوت تيلجرام</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- رسالة للمطورين -->
+        <div class="alert alert-info text-center mt-5" role="alert">
+            <i class="fas fa-heart text-danger me-2"></i>
+            مطور بايثون وبوتات تيلجرام - متاح للعمل الحر والمشاريع
+            <br>
+            <strong>للتواصل: @AHMED_KHANA على تيلجرام</strong>
+        </div>
+
+        <div class="text-center mt-4 mb-5">
+            <a href="/" class="btn btn-primary btn-lg">
+                <i class="fas fa-home me-2"></i>
+                العودة للرئيسية
+            </a>
+        </div>
+    </div>
+
+    <footer class="footer mt-5 py-4 bg-dark text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <h5>Social Downloader</h5>
+                    <p>موقع تحميل من مواقع التواصل الاجتماعي<br>تم التطوير بواسطة <strong>أحمد خان</strong></p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <h5>تواصل مع المطور</h5>
+                    <div>
+                        <a href="https://instagram.com/_98sf" target="_blank" class="text-white me-3">
+                            <i class="fab fa-instagram fa-2x"></i>
+                        </a>
+                        <a href="https://t.me/AHMED_KHANA" target="_blank" class="text-white">
+                            <i class="fab fa-telegram fa-2x"></i>
+                        </a>
+                    </div>
+                    <p class="mt-2 mb-0"><i class="fas fa-envelope me-2"></i> Insta: @_98sf | Telegram: @AHMED_KHANA</p>
+                </div>
+            </div>
+            <hr class="bg-light">
+            <div class="text-center">
+                <p class="mb-0">جميع الحقوق محفوظة &copy; 2024 - تصميم وبرمجة <strong class="developer-name">أحمد خان</strong></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
